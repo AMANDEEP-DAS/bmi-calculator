@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 
-import 'container.dart';
 
 class InputScreen extends StatefulWidget {
   const InputScreen({Key? key}) : super(key: key);
@@ -23,8 +22,22 @@ class _InputScreenState extends State<InputScreen> {
             Expanded(child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                BoxContainers(),
-                BoxContainers(),
+                Container(
+                  height: MediaQuery.of(context).size.height,
+                  width: MediaQuery.of(context).size.width/2.2,
+                  decoration: BoxDecoration(
+                    color: Colors.grey.shade900,
+                      borderRadius: BorderRadius.all(Radius.circular(30))
+                  ),
+                ),
+                Container(
+                  height: MediaQuery.of(context).size.height,
+                  width: MediaQuery.of(context).size.width/2.2,
+                  decoration: BoxDecoration(
+                      color: Colors.grey.shade900,
+                      borderRadius: BorderRadius.all(Radius.circular(30))
+                  ),
+                )
               ],
             )),
             SizedBox(height: 10,),
@@ -34,7 +47,7 @@ class _InputScreenState extends State<InputScreen> {
                   height: MediaQuery.of(context).size.height,
                   width: MediaQuery.of(context).size.width-20,
                   decoration: BoxDecoration(
-                      color: Colors.red.shade900,
+                      color: Colors.grey.shade900,
                       borderRadius: BorderRadius.all(Radius.circular(30))
                   ),
                 )
@@ -44,8 +57,22 @@ class _InputScreenState extends State<InputScreen> {
             Expanded(child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                BoxContainers(),
-                BoxContainers(),
+                Container(
+                  height: MediaQuery.of(context).size.height,
+                  width: MediaQuery.of(context).size.width/2.2,
+                  decoration: BoxDecoration(
+                      color: Colors.grey.shade900,
+                      borderRadius: BorderRadius.all(Radius.circular(30))
+                  ),
+                ),
+                Container(
+                  height: MediaQuery.of(context).size.height,
+                  width: MediaQuery.of(context).size.width/2.2,
+                  decoration: BoxDecoration(
+                      color: Colors.grey.shade900,
+                      borderRadius: BorderRadius.all(Radius.circular(30))
+                  ),
+                )
               ],
             )),
           ],
