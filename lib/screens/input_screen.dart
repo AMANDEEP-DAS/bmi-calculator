@@ -1,3 +1,4 @@
+import 'package:bmi_calculator/screens/result_screen.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
@@ -8,7 +9,7 @@ class InputScreen extends StatefulWidget {
 
 class _InputScreenState extends State<InputScreen> {
   int height = 180;
-  int weight = 50;
+  int weight = 65;
   int age = 18;
   bool fcolor = false;
   bool mcolor = true;
@@ -20,6 +21,9 @@ class _InputScreenState extends State<InputScreen> {
         title: Center(child: Text('BMI Calculator')),
       ),
       bottomNavigationBar: GestureDetector(
+        onTap: (){
+          Navigator.push(context, MaterialPageRoute(builder: (context)=>ResultScreen()));
+        },
         child: BottomAppBar(
           color: Colors.red,
           child: Padding(
@@ -27,7 +31,7 @@ class _InputScreenState extends State<InputScreen> {
             child: Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                Text('CALCULATE THE BMI',style: TextStyle(fontSize: 25),),
+                Text('CALCULATE BMI',style: TextStyle(fontSize: 25,fontWeight: FontWeight.bold)),
               ],
             ),
           ),
@@ -41,24 +45,32 @@ class _InputScreenState extends State<InputScreen> {
                 child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                Container(
-                  padding: EdgeInsets.all(30),
-                  height: MediaQuery.of(context).size.height,
-                  width: MediaQuery.of(context).size.width / 2.2,
-                  decoration: BoxDecoration(
-                      color: Colors.black54,
-                      borderRadius: BorderRadius.all(Radius.circular(30))),
-                  child: Column(
-                    children: [
-                      Icon(
-                        Icons.male,
-                        size: 80,
-                      ),
-                      Text(
-                        'MALE',
-                        style: TextStyle(fontSize: 30),
-                      )
-                    ],
+                GestureDetector(
+                  onTap: (){
+                   setState(() {
+                     mcolor = !mcolor;
+                     fcolor = !fcolor;
+                   });
+                  },
+                  child: Container(
+                    padding: EdgeInsets.all(30),
+                    height: MediaQuery.of(context).size.height,
+                    width: MediaQuery.of(context).size.width / 2.2,
+                    decoration: BoxDecoration(
+                        color: mcolor? Colors.grey.shade900:Colors.black54,
+                        borderRadius: BorderRadius.all(Radius.circular(30))),
+                    child: Column(
+                      children: [
+                        Icon(
+                          Icons.male,
+                          size: 80,
+                        ),
+                        Text(
+                          'MALE',
+                          style: TextStyle(fontSize: 30),
+                        )
+                      ],
+                    ),
                   ),
                 ),
                 GestureDetector(
