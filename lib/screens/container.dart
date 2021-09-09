@@ -7,7 +7,7 @@ class BoxContainers extends StatelessWidget {
       height: MediaQuery.of(context).size.height,
       width: MediaQuery.of(context).size.width / 2.2,
       decoration: BoxDecoration(
-          color: Colors.grey.shade900,
+          color: Colors.black54,
           borderRadius: BorderRadius.all(Radius.circular(30))),
     );
   }
