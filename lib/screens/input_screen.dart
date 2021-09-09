@@ -8,14 +8,30 @@ class InputScreen extends StatefulWidget {
 
 class _InputScreenState extends State<InputScreen> {
   int height = 180;
-  int weight = 0;
-  int age = 0;
+  int weight = 50;
+  int age = 18;
+  bool fcolor = false;
+  bool mcolor = true;
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         title: Center(child: Text('BMI Calculator')),
+      ),
+      bottomNavigationBar: GestureDetector(
+        child: BottomAppBar(
+          color: Colors.red,
+          child: Padding(
+            padding: const EdgeInsets.all(15.0),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Text('CALCULATE THE BMI',style: TextStyle(fontSize: 25),),
+              ],
+            ),
+          ),
+        ),
       ),
       body: Padding(
         padding: const EdgeInsets.symmetric(vertical: 15, horizontal: 10),
@@ -45,24 +61,32 @@ class _InputScreenState extends State<InputScreen> {
                     ],
                   ),
                 ),
-                Container(
-                  padding: EdgeInsets.all(30),
-                  height: MediaQuery.of(context).size.height,
-                  width: MediaQuery.of(context).size.width / 2.2,
-                  decoration: BoxDecoration(
-                      color: Colors.black54,
-                      borderRadius: BorderRadius.all(Radius.circular(30))),
-                  child: Column(
-                    children: [
-                      Icon(
-                        Icons.female,
-                        size: 80,
-                      ),
-                      Text(
-                        'FEMALE',
-                        style: TextStyle(fontSize: 30),
-                      )
-                    ],
+                GestureDetector(
+                  onTap: (){
+                    setState(() {
+                      fcolor = !fcolor;
+                      mcolor = !mcolor;
+                    });
+                  },
+                  child: Container(
+                    padding: EdgeInsets.all(30),
+                    height: MediaQuery.of(context).size.height,
+                    width: MediaQuery.of(context).size.width / 2.2,
+                    decoration: BoxDecoration(
+                        color: fcolor? Colors.grey.shade900:Colors.black54,
+                        borderRadius: BorderRadius.all(Radius.circular(30))),
+                    child: Column(
+                      children: [
+                        Icon(
+                          Icons.female,
+                          size: 80,
+                        ),
+                        Text(
+                          'FEMALE',
+                          style: TextStyle(fontSize: 30),
+                        )
+                      ],
+                    ),
                   ),
                 )
               ],
