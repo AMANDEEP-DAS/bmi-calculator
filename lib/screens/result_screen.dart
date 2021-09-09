@@ -5,10 +5,11 @@ class ResultScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Center(child: Text('BMI Result')),
-      ),
+      appBar: AppBar(),
       bottomNavigationBar: GestureDetector(
+        onTap: (){
+          Navigator.of(context).pop();
+        },
         child: BottomAppBar(
           color: Colors.red,
           child: Padding(
