@@ -1,6 +1,7 @@
 import 'package:bmi_calculator/screens/result_screen.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'calculator_brain.dart';
 
 class InputScreen extends StatefulWidget {
   @override
@@ -22,7 +23,12 @@ class _InputScreenState extends State<InputScreen> {
       ),
       bottomNavigationBar: GestureDetector(
         onTap: (){
-          Navigator.push(context, MaterialPageRoute(builder: (context)=>ResultScreen()));
+          CalculatorBrain calc = CalculatorBrain(height: height, weight: weight);
+          Navigator.push(context, MaterialPageRoute(builder: (context)=>ResultScreen(
+            bmiResult: calc.calculateBmi(),
+            interpretation: calc.getInterpretation(),
+            resultText: calc.getResult(),
+          )));
         },
         child: BottomAppBar(
           color: Colors.red,

@@ -1,6 +1,12 @@
+
 import 'package:flutter/material.dart';
 
 class ResultScreen extends StatelessWidget {
+  ResultScreen({required this.interpretation,required this.resultText,required this.bmiResult});
+  final String bmiResult;
+  final String resultText;
+  final String interpretation;
+
 
   @override
   Widget build(BuildContext context) {
@@ -46,9 +52,9 @@ class ResultScreen extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 crossAxisAlignment: CrossAxisAlignment.stretch,
                 children: [
-                  Center(child: Text('NORMAL',style: TextStyle(fontSize: 30,fontWeight: FontWeight.bold),)),
-                  Center(child: Text('30.6',style: TextStyle(fontSize: 100,color: Colors.red),)),
-                  Center(child: Text('NORMAL',style: TextStyle(fontSize: 15),))
+                  Center(child: Text(resultText.toUpperCase(),style: TextStyle(fontSize: 30,fontWeight: FontWeight.bold),)),
+                  Center(child: Text(bmiResult,style: TextStyle(fontSize: 100,color: Colors.green),)),
+                  Container(padding: EdgeInsets.all(20),child: Center(child: Text(interpretation,style: TextStyle(fontSize: 18),maxLines: 2,)))
                 ],
               ),
             ),
